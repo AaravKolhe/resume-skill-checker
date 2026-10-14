@@ -1,0 +1,4 @@
+upstream/
+.hiring-panel/
+__pycache__/
+.validation-deps/

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hiring Panel"
+  short_description: "Seven resume reviews and an evidence-based rewrite"
+  default_prompt: "Use $hiring-panel to review my resume against this job posting and create an improved draft."
