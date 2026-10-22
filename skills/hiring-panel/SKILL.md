@@ -5,7 +5,7 @@ license: MIT
 metadata:
   original-author: "Alex Chen (@nocodealex)"
   source: "https://github.com/alexyc9381/hiring-panel-skill"
-  version: "1.1.0-codex"
+  version: "1.2.0-codex"
 ---
 
 # Hiring panel
@@ -40,7 +40,7 @@ Rewrite the resume using only the source facts and explicit user clarifications.
 
 Map every numbered finding to its revised section and status: fixed, needs user fact, or cannot be resolved from supplied evidence. Do not claim wording changes cured a qualification gap. Audit every new factual claim against the original or a user clarification and remove unsupported additions.
 
-Produce the rewritten resume in LaTeX by default. Read [references/latex-output.md](references/latex-output.md) and start from [assets/resume-template.tex](assets/resume-template.tex). The template follows a traditional one-column resume with serif type, a centered contact header, section rules, compact bullets, and right-aligned dates. Match the user's reference resume when supplied, while preserving the evidence-based content decisions. Honor an explicit request for another format.
+Produce the rewritten resume in LaTeX by default. Read [references/latex-output.md](references/latex-output.md) and start from [assets/resume-template.tex](assets/resume-template.tex). The template follows a traditional one-column resume with serif type, a centered contact header, section rules, compact bullets, and right-aligned dates. Keep each generated or revised bullet and text entry to one rendered line, and use exactly three items in every bullet list. Split supported compound statements or use concise visible factual prompts when needed; never invent or repeat achievements to meet the count. Match the user's reference resume when supplied, while preserving the evidence-based content decisions. Honor explicit user overrides.
 
 Run the automated screen again on the revised resume with the same target and rubric, using a fresh reviewer context when possible. Give it extracted text from the compiled PDF and layout observations when available, rather than raw LaTeX commands. Do not include prior verdicts or ask it to improve the score. Compare the original and revised verdicts honestly; improvement is not guaranteed. If compilation is unavailable, screen the intended plain text and label final layout unverified. Visible factual placeholders still make a draft unfinished.
 

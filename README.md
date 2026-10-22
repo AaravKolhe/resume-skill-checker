@@ -20,6 +20,8 @@ Pasted resume text works too. The skill writes `PANEL.md` and an editable LaTeX 
 
 The bundled template uses a single column, Times-style serif text, a centered contact header, thin section rules, compact bullets, and right-aligned dates. Supplied reference resumes guide the final layout. Ask for another format to override the LaTeX default. The public template contains no personal resume data.
 
+Generated or revised bullets and text entries fit on one rendered line, and every bullet list has exactly three items. The skill splits existing compound statements where useful and uses visible factual prompts when evidence is missing; it never invents achievements to fill a list. It checks bullet counts and visual wrapping before delivery, or reports when rendering could not be verified.
+
 ## Changes from the Claude Code version
 
 - Codex `$hiring-panel` invocation and `agents/openai.yaml` UI metadata.

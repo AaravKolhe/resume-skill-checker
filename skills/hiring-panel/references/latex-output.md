@@ -9,6 +9,10 @@ Use `assets/resume-template.tex` as a portable, self-contained starting point. I
 - Uppercase bold section headings above thin horizontal rules.
 - Bold employer/project names; italic roles or descriptors; right-aligned locations and dates.
 - Tight, readable bullet lists with no icons, photo, sidebar, colors, or page numbers.
+- Exactly three items per bullet list, with each item occupying one rendered line. This applies to every list, not to sections such as Education or Skills that use plain rows.
+- Every generated or revised text entry must fit on one rendered line. A single line in the `.tex` source does not prove that it fits in the PDF.
+
+Shorten wording while preserving factual meaning and key metrics. Split a supported compound bullet into distinct contributions when a list needs a third item. If there are too few facts, use a concise visible `\resumeNeed{...}` prompt and put the full question in the report; do not add filler, duplicate achievements, or invent facts. For more than three source bullets, consolidate related facts into three concise items; if that cannot preserve material facts, surface the conflict instead of silently dropping them. Do not enforce one-line fit with clipping, horizontal scaling, tiny fonts, or unbreakable boxes. Keep long employer names and role titles on separate rows; if a single essential field cannot fit legibly, explain the exception rather than hiding or truncating it.
 
 Aim for a one-page early-career resume like the reference, but do not shrink below 10 pt, overlap text, clip content, or delete supported facts merely to force one page. If factual prompts or substantive content require a second page, disclose that and preserve readability. Match the appearance, not necessarily the original section order: role-based improvements may move relevant experience earlier. Treat layout-only requests as format conversions and preserve their chosen content.
 
@@ -26,6 +30,6 @@ Use `\resumeRow{left}{right}` for short aligned rows; keep both fields short eno
 
 ## Verification
 
-Fix compiler errors and material overfull-box warnings, up to three repair attempts. Render every resulting PDF page and inspect margins, wrapping, date alignment, section rules, and bullets. Extract its text to verify reading order, contacts, dates, symbols, metrics, and visibility of all unresolved prompts; compare it with the intended content. Do not assume successful compilation guarantees a readable or ATS-compatible PDF.
+Fix compiler errors and material overfull-box warnings, up to three repair attempts. Count exactly three `\item` entries in each bullet list. Render every resulting PDF page and inspect margins, wrapping, date alignment, section rules, and bullets; confirm each bullet and text entry occupies one visual line. A compiler can succeed while text wraps, so compilation alone does not verify this constraint. Extract its text to verify reading order, contacts, dates, symbols, metrics, and visibility of all unresolved prompts; compare it with the intended content. Do not assume successful compilation guarantees a readable or ATS-compatible PDF.
 
 An editor preview alone is not proof of successful compilation; use compiler diagnostics. If compilation or rendering is unavailable, deliver the `.tex` source and disclose the unverified step rather than claiming a PDF exists. Keep any auxiliary files inside the run directory. Do not change factual content just to get a favorable re-screen result.
