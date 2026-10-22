@@ -5,7 +5,7 @@ license: MIT
 metadata:
   original-author: "Alex Chen (@nocodealex)"
   source: "https://github.com/alexyc9381/hiring-panel-skill"
-  version: "1.2.0-codex"
+  version: "1.3.0-codex"
 ---
 
 # Hiring panel

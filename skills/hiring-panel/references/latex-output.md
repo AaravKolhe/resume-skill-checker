@@ -5,6 +5,7 @@ Use `assets/resume-template.tex` as a portable, self-contained starting point. I
 ## Visual target
 
 - US Letter, one column, approximately 0.5-inch margins, 10-11 pt Times-style serif text.
+- Balance the visible top and bottom borders using the template's full-height content box. Use uniform 0.5 pt item gaps and 2 pt list gaps; distribute leftover page height evenly across the section gaps, each with a 7 pt minimum. Keep the same spacing definitions across entries rather than adding isolated blank lines or negative spacing fixes.
 - Centered bold name around 18 pt with one compact contact line.
 - Uppercase bold section headings above thin horizontal rules.
 - Bold employer/project names; italic roles or descriptors; right-aligned locations and dates.
@@ -15,6 +16,8 @@ Use `assets/resume-template.tex` as a portable, self-contained starting point. I
 Shorten wording while preserving factual meaning and key metrics. Split a supported compound bullet into distinct contributions when a list needs a third item. If there are too few facts, use a concise visible `\resumeNeed{...}` prompt and put the full question in the report; do not add filler, duplicate achievements, or invent facts. For more than three source bullets, consolidate related facts into three concise items; if that cannot preserve material facts, surface the conflict instead of silently dropping them. Do not enforce one-line fit with clipping, horizontal scaling, tiny fonts, or unbreakable boxes. Keep long employer names and role titles on separate rows; if a single essential field cannot fit legibly, explain the exception rather than hiding or truncating it.
 
 Aim for a one-page early-career resume like the reference, but do not shrink below 10 pt, overlap text, clip content, or delete supported facts merely to force one page. If factual prompts or substantive content require a second page, disclose that and preserve readability. Match the appearance, not necessarily the original section order: role-based improvements may move relevant experience earlier. Treat layout-only requests as format conversions and preserve their chosen content.
+
+The full-height box is for a one-page resume. Check for an overfull vertical box: if the content exceeds the available height, remove the outer `\vbox to \textheight\bgroup` / `\par\egroup` wrapper and use natural page flow with fixed section gaps before laying out multiple pages. Do not let a fixed-height box hide overflow. For very short resumes, avoid excessively stretched section gaps; use a balanced, vertically centered content block instead. Check the rendered border balance and spacing, not just the geometry margin settings.
 
 ## Author and compile
 

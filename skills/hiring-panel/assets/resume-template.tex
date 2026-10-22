@@ -7,16 +7,19 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
 \setlength{\emergencystretch}{1em}
-\renewenvironment{itemize}{\begin{list}{\textbullet}{\setlength{\leftmargin}{1.1em}\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}\setlength{\topsep}{1pt}\setlength{\partopsep}{0pt}}}{\end{list}}
-\newcommand{\resumeSection}[1]{\par\addvspace{7pt}\noindent\textbf{\MakeUppercase{#1}}\par\nobreak\vspace{1pt}\hrule height 0.4pt\nobreak\vspace{3pt}}
+\renewenvironment{itemize}{\begin{list}{\textbullet}{\setlength{\leftmargin}{1.1em}\setlength{\itemsep}{0.5pt}\setlength{\parsep}{0pt}\setlength{\topsep}{2pt}\setlength{\partopsep}{0pt}}}{\end{list}}
+\newcommand{\resumeSection}[1]{\par\vskip 7pt plus 1fill\noindent\textbf{\MakeUppercase{#1}}\par\nobreak\vspace{1pt}\hrule height 0.4pt\nobreak\vspace{3pt}}
 \newcommand{\resumeRow}[2]{\noindent #1\hfill #2\par}
 \newcommand{\resumeNeed}[1]{\textit{[ADD: #1]}}
 \begin{document}
-\begin{center}
+% Balance the page by distributing spare height evenly between sections.
+\noindent\vbox to \textheight\bgroup
+\hsize=\textwidth
+\begingroup\centering
 {\fontsize{18}{20}\selectfont\bfseries CANDIDATE NAME}\\[2pt]
 email@example.com \enspace\textbullet\enspace Phone \enspace\textbullet\enspace Profile URL
-\end{center}
-\vspace{-6pt}
+\par\endgroup
+\vspace{4pt}
 
 % Replace all schematic content below with supported candidate facts.
 \resumeSection{Education}
@@ -55,4 +58,5 @@ Minors or certificates, if supplied
 
 \resumeSection{Honors}
 \resumeRow{\textbf{Award} \textbar{} Organization}{Date}
+\par\egroup
 \end{document}
