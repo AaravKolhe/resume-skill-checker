@@ -1,0 +1,52 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\renewcommand{\rmdefault}{ptm}
+\usepackage[hidelinks]{hyperref}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1em}
+\renewenvironment{itemize}{\begin{list}{\textbullet}{\setlength{\leftmargin}{1.1em}\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}\setlength{\topsep}{1pt}\setlength{\partopsep}{0pt}}}{\end{list}}
+\newcommand{\resumeSection}[1]{\par\addvspace{7pt}\noindent\textbf{\MakeUppercase{#1}}\par\nobreak\vspace{1pt}\hrule height 0.4pt\nobreak\vspace{3pt}}
+\newcommand{\resumeRow}[2]{\noindent #1\hfill #2\par}
+\newcommand{\resumeNeed}[1]{\textit{[ADD: #1]}}
+\begin{document}
+\begin{center}
+{\fontsize{18}{20}\selectfont\bfseries CANDIDATE NAME}\\[2pt]
+email@example.com \enspace\textbullet\enspace Phone \enspace\textbullet\enspace Profile URL
+\end{center}
+\vspace{-6pt}
+
+% Replace all schematic content below with supported candidate facts.
+\resumeSection{Education}
+\resumeRow{\textbf{University}}{City, State}
+\resumeRow{Degree and major}{Expected graduation}
+Minors or certificates, if supplied
+
+\resumeSection{Experience}
+\resumeRow{\textbf{Organization}}{City, State}
+\resumeRow{\textit{Actual role title}}{Start -- End}
+\begin{itemize}
+\item Source-supported action, scope, and outcome.
+\end{itemize}
+
+\resumeSection{Projects}
+\resumeRow{\textbf{Project name} \textbar{} \textit{Descriptor}}{Start -- End}
+\begin{itemize}
+\item Source-supported contribution and result.
+\end{itemize}
+
+\resumeSection{Leadership Experience and Activities}
+\resumeRow{\textbf{Organization}}{City, State}
+\resumeRow{\textit{Actual role title}}{Start -- End}
+\begin{itemize}
+\item Source-supported collaboration and contribution.
+\end{itemize}
+
+\resumeSection{Technical Skills}
+\textbf{Category:} Source-supported skills
+
+\resumeSection{Honors}
+\resumeRow{\textbf{Award} \textbar{} Organization}{Date}
+\end{document}

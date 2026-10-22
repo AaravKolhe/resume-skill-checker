@@ -5,7 +5,7 @@ license: MIT
 metadata:
   original-author: "Alex Chen (@nocodealex)"
   source: "https://github.com/alexyc9381/hiring-panel-skill"
-  version: "1.0.0-codex"
+  version: "1.1.0-codex"
 ---
 
 # Hiring panel
@@ -40,13 +40,16 @@ Rewrite the resume using only the source facts and explicit user clarifications.
 
 Map every numbered finding to its revised section and status: fixed, needs user fact, or cannot be resolved from supplied evidence. Do not claim wording changes cured a qualification gap. Audit every new factual claim against the original or a user clarification and remove unsupported additions.
 
-Run the automated screen again on the revised version with the same target and rubric, using a fresh reviewer context when possible. Do not include prior verdicts or ask it to improve the score. Compare the original and revised verdicts honestly; improvement is not guaranteed. A Markdown re-screen verifies the draft's text, not the eventual PDF/DOCX layout. Identify that limitation if the original was a formatted document.
+Produce the rewritten resume in LaTeX by default. Read [references/latex-output.md](references/latex-output.md) and start from [assets/resume-template.tex](assets/resume-template.tex). The template follows a traditional one-column resume with serif type, a centered contact header, section rules, compact bullets, and right-aligned dates. Match the user's reference resume when supplied, while preserving the evidence-based content decisions. Honor an explicit request for another format.
+
+Run the automated screen again on the revised resume with the same target and rubric, using a fresh reviewer context when possible. Give it extracted text from the compiled PDF and layout observations when available, rather than raw LaTeX commands. Do not include prior verdicts or ask it to improve the score. Compare the original and revised verdicts honestly; improvement is not guaranteed. If compilation is unavailable, screen the intended plain text and label final layout unverified. Visible factual placeholders still make a draft unfinished.
 
 ## Deliver
 
 Write only inside `.hiring-panel/<YYYY-MM-DD>-<name>/` under the user's workspace unless they request another destination. Use the user's local date and a filename-safe name derived from the resume, or `candidate` if absent. Add a suffix for an existing run; never overwrite the original resume or prior results.
 
 - `PANEL.md`: target and input limitations; execution mode; seven labeled verdicts and reasons; prioritized findings; finding-to-revision mapping; before/after screen results; unresolved questions. Explain once that these are model-generated second opinions, not hiring guarantees. Credit the source: "Adapted for Codex from hiring-panel by Alex Chen (@nocodealex): https://github.com/alexyc9381/hiring-panel-skill (MIT)."
-- `RESUME-IMPROVED.md`: the revised resume, retaining visible `[ADD: ...]` markers for unresolved facts. Keep review commentary and attribution out of the candidate's resume; the bundled LICENSE preserves source credit.
+- `resume/main.tex`: the editable, self-contained LaTeX resume, retaining visible `[ADD: ...]` markers for unresolved facts. Keep review commentary and attribution out of the candidate's resume; the bundled LICENSE preserves source credit.
+- `resume/main.pdf`: compiled resume when a compiler is available. Verify compilation and inspect rendered pages before claiming the PDF is ready. In Codex desktop, open the LaTeX project for its live PDF preview; if no export is available, clearly distinguish the preview from a saved PDF file. A Markdown companion is optional, not the default resume deliverable.
 
-In chat, give one line per reviewer, up to five highest-priority findings, the before/after verdict, remaining factual questions, and clickable paths to both files. Honor a narrower user request (for example, critique only) without generating an unwanted rewrite. Offer other document formats only if useful; create them when requested using available document tools.
+In chat, give one line per reviewer, up to five highest-priority findings, the before/after verdict, remaining factual questions, and clickable paths to the report, LaTeX source, and saved PDF if produced. Honor a narrower user request (for example, critique only or format conversion only) without running an unwanted review or rewrite.

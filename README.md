@@ -16,11 +16,14 @@ Target: Senior product designer at a fintech startup.
 Job posting: [paste the posting here]
 ```
 
-Pasted resume text works too. The skill writes `PANEL.md` and `RESUME-IMPROVED.md` into a new `.hiring-panel/<date>-<name>/` directory in the working workspace. Unknown facts stay as `[ADD: ...]` placeholders, with questions in the report.
+Pasted resume text works too. The skill writes `PANEL.md` and an editable LaTeX project at `resume/main.tex` into a new `.hiring-panel/<date>-<name>/` directory in the working workspace. It compiles `resume/main.pdf` when a compiler is available, or opens the project in Codex's LaTeX editor for a live PDF preview. It reports any compilation or visual checks it could not complete. Unknown facts stay as visible `[ADD: ...]` placeholders, with questions in the report.
+
+The bundled template uses a single column, Times-style serif text, a centered contact header, thin section rules, compact bullets, and right-aligned dates. Supplied reference resumes guide the final layout. Ask for another format to override the LaTeX default. The public template contains no personal resume data.
 
 ## Changes from the Claude Code version
 
 - Codex `$hiring-panel` invocation and `agents/openai.yaml` UI metadata.
+- LaTeX resume template with compilation, visual inspection, and PDF text-extraction checks.
 - Removed Claude-specific `argument-hint` and fixed five-at-once scheduling.
 - Explicit reviewer isolation, concurrency limits, failure handling, and honest single-agent fallback.
 - Evidence citations, factual rewrite audit, and tracking for issues that require user input.
