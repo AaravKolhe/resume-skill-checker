@@ -4,6 +4,8 @@ Every reviewer grounds findings in the supplied resume and target. Quote exact s
 
 ## 1. Automated screen — `screen`
 
+Apply `references/ats-checks.md` (relative to the skill root). The coordinator supplies this rubric and the original or final extraction audit, when available, without prior verdicts. Separate extraction defects, job-evidence gaps, and unfinished draft markers in the reasons. A local extraction audit is not a real ATS test. If the PDF could not be inspected, report the screen as **UNVERIFIED** instead of treating absent inspection evidence as a rejection or pass.
+
 Check in order:
 1. Extracted reading order, recognizable sections, and parsing hazards. Judge columns, images, or tables only if layout evidence is supplied; otherwise mark layout unverified.
 2. Clarity of job titles, employers, and dates.

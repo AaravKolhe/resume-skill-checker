@@ -1,6 +1,12 @@
 \documentclass[10pt,letterpaper]{article}
 \usepackage[margin=0.5in]{geometry}
 \usepackage[T1]{fontenc}
+% Enable Unicode text mapping and explicit interword spaces with pdfTeX.
+\ifdefined\pdfgentounicode
+  \input{glyphtounicode}
+  \pdfgentounicode=1
+\fi
+\ifdefined\pdfinterwordspaceon\pdfinterwordspaceon\fi
 \renewcommand{\rmdefault}{ptm}
 \usepackage[hidelinks]{hyperref}
 \pagestyle{empty}

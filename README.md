@@ -37,3 +37,11 @@ Generated or revised bullets and text entries fit on one rendered line, and ever
 The seven perspectives and rewrite workflow come from the original project. This adaptation is not affiliated with OpenAI or Anthropic. Model reviews do not guarantee interviews or jobs.
 
 Codex format reference: [Build skills](https://learn.chatgpt.com/docs/build-skills).
+
+## Integrated ATS checks
+
+Version 1.4 adapts the ATS optimizer, formatting, truthful tailoring, and job-description analysis guidance from [ResumeSkills](https://github.com/Paramchoudhary/ResumeSkills). It adds a required/preferred evidence table and separates PDF parsing, job evidence, and submission readiness. No extra skills need to be installed. Attribution and the upstream MIT notice are bundled with the skill.
+
+The local `scripts/check_pdf_text.py` helper requires Python and `pypdf`. It checks the generated PDF against a source-derived expected-fields list, flags missing text and unfinished prompts, and writes a JSON audit in the private run folder. This is a limited extraction check, not an actual ATS simulator or guarantee of acceptance. The skill retains one-line entries, three bullets per list, and balanced spacing.
+
+Example: `$hiring-panel Review my resume against this posting, check ATS readability, and build the LaTeX resume.` Attach the resume and paste the posting. Without a posting, it checks formatting and extraction but cannot evaluate job-specific keyword coverage.

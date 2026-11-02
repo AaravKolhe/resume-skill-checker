@@ -33,6 +33,8 @@ Use `\resumeRow{left}{right}` for short aligned rows; keep both fields short eno
 
 ## Verification
 
+Follow `ats-checks.md` for final-PDF extraction and job-evidence checks. Retain the template's pdfTeX Unicode mapping and interword-space settings; these improve text extraction but do not guarantee ATS compatibility. Verify actual output even when these settings are enabled. Contact details belong in the document body, and all essential information must remain extractable as text.
+
 Fix compiler errors and material overfull-box warnings, up to three repair attempts. Count exactly three `\item` entries in each bullet list. Render every resulting PDF page and inspect margins, wrapping, date alignment, section rules, and bullets; confirm each bullet and text entry occupies one visual line. A compiler can succeed while text wraps, so compilation alone does not verify this constraint. Extract its text to verify reading order, contacts, dates, symbols, metrics, and visibility of all unresolved prompts; compare it with the intended content. Do not assume successful compilation guarantees a readable or ATS-compatible PDF.
 
 An editor preview alone is not proof of successful compilation; use compiler diagnostics. If compilation or rendering is unavailable, deliver the `.tex` source and disclose the unverified step rather than claiming a PDF exists. Keep any auxiliary files inside the run directory. Do not change factual content just to get a favorable re-screen result.

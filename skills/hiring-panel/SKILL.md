@@ -5,7 +5,7 @@ license: MIT
 metadata:
   original-author: "Alex Chen (@nocodealex)"
   source: "https://github.com/alexyc9381/hiring-panel-skill"
-  version: "1.3.0-codex"
+  version: "1.4.0-codex"
 ---
 
 # Hiring panel
@@ -21,6 +21,12 @@ Use available file readers to extract PDF or DOCX text. Inspect rendered pages w
 Preserve a stable, line-numbered copy of the extracted text in working context for evidence citations. Identify the top third by visible content order, or use the first third of nonblank extracted lines and label that approximation. Keep user-supplied clarifications separate from the original text.
 
 Never invent employers, titles, dates, qualifications, numbers, skills, responsibilities, or personal details. A missing keyword means missing evidence, not proof the candidate lacks a skill. Use only job-relevant evidence; do not infer protected characteristics or judge gaps as evidence of poor character. A role-only review cannot establish exact job-posting keyword coverage.
+
+## ATS checks and job evidence
+
+Read [references/ats-checks.md](references/ats-checks.md) for the integrated ResumeSkills workflow. Before rewriting, map explicit required and preferred job criteria to quoted resume evidence and distinguish exact wording, supported equivalents, and missing evidence. Without a posting, mark job-specific coverage unavailable. Check parsing and formatting separately from qualification evidence and submission readiness; do not manufacture an overall ATS score or guarantee a pass.
+
+After compiling, run `scripts/check_pdf_text.py` against the actual final PDF and a JSON list of source-supported fields that must survive extraction. Review the resulting evidence alongside rendered pages, fix supported issues, and record unchecked areas. Do not claim ATS checks passed based only on the LaTeX source, visual appearance, or a successful compile. Keep these audit artifacts inside the private run directory.
 
 ## Run the panel
 
@@ -48,7 +54,7 @@ Run the automated screen again on the revised resume with the same target and ru
 
 Write only inside `.hiring-panel/<YYYY-MM-DD>-<name>/` under the user's workspace unless they request another destination. Use the user's local date and a filename-safe name derived from the resume, or `candidate` if absent. Add a suffix for an existing run; never overwrite the original resume or prior results.
 
-- `PANEL.md`: target and input limitations; execution mode; seven labeled verdicts and reasons; prioritized findings; finding-to-revision mapping; before/after screen results; unresolved questions. Explain once that these are model-generated second opinions, not hiring guarantees. Credit the source: "Adapted for Codex from hiring-panel by Alex Chen (@nocodealex): https://github.com/alexyc9381/hiring-panel-skill (MIT)."
+- `PANEL.md`: target and input limitations; execution mode; seven labeled verdicts and reasons; prioritized findings; finding-to-revision mapping; before/after screen results; unresolved questions. Include an ATS checks section with extraction evidence, required/preferred job-criteria mapping, truthful keyword edits, and separate parsing, job-evidence, and readiness statuses from `references/ats-checks.md`. Explain once that these are model-generated second opinions, not hiring guarantees. Credit the source: "Adapted for Codex from hiring-panel by Alex Chen (@nocodealex): https://github.com/alexyc9381/hiring-panel-skill (MIT)." Also credit the ResumeSkills adaptation described in `THIRD_PARTY_NOTICES.md`.
 - `resume/main.tex`: the editable, self-contained LaTeX resume, retaining visible `[ADD: ...]` markers for unresolved facts. Keep review commentary and attribution out of the candidate's resume; the bundled LICENSE preserves source credit.
 - `resume/main.pdf`: compiled resume when a compiler is available. Verify compilation and inspect rendered pages before claiming the PDF is ready. In Codex desktop, open the LaTeX project for its live PDF preview; if no export is available, clearly distinguish the preview from a saved PDF file. A Markdown companion is optional, not the default resume deliverable.
 
