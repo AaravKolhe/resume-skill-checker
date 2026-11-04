@@ -11,3 +11,8 @@ Reviewed components: `skills/resume-ats-optimizer/SKILL.md`, `skills/resume-form
 Its MIT notice is retained in `licenses/ResumeSkills-LICENSE.txt`.
 
 This integration adapts parsing/formatting checks, required/preferred criteria mapping, and truthful keyword tailoring. It intentionally omits upstream hiring statistics, universal pass thresholds, keyword-frequency quotas, invented example accomplishments, and predictions of ATS acceptance. Existing user formatting preferences take precedence over upstream defaults. No other upstream skills or installers are executed or required.
+
+Optional structured verification runs a separately obtained OpenResume checkout:
+https://github.com/xitanggg/open-resume
+Tested commit: `4f8255a2c763479837f69f1dccf2a3338730cd79` (AGPL-3.0).
+No upstream parser source or dependencies are redistributed in this skill. The local adapter loads the user's separate checkout; retain its license there. This integration is not affiliated with OpenResume.

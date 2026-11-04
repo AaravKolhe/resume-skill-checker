@@ -40,6 +40,25 @@ The helper normalizes Unicode, whitespace, and case for field matching. It repor
 
 Correct confirmed extraction/layout errors and rerun checks on the final version, up to three repair attempts. Use a new numbered audit filename for each run; the helper refuses to overwrite existing files. Never alter source facts just to satisfy a string check. If an expected field is absent due to an extractor quirk, record the exact discrepancy and the corroborating evidence; do not silently erase the failing expectation. If no saved PDF is available, preserve source and mark the PDF check unverified.
 
+## Latest-edit verification (every resume edit)
+
+Treat one saved revision as the unit of verification, not each keystroke. Apply this procedure after content edits, formatting changes, compiler repairs that alter source, and later follow-up corrections, even outside a full rebuild. A new edit invalidates all earlier PASS/readiness results for the current document. Do not rerun all seven reviewers for a narrow edit unless requested; rerun the automated screen and factual/job-evidence checks affected by that edit.
+
+1. Save the current source and preserve an immutable snapshot. Record its absolute path and SHA-256, plus hashes of included local source/style/assets when applicable. Prepare expected fields from the intended current content, never from extracted output.
+2. Compile that saved version. Prefer the existing editor and its supported export/download capability. If it produces only a preview, proactively discover an available export mechanism rather than immediately requesting an upload. When export is unavailable and separate compilation is permitted, use a local TeX engine with shell escape disabled on the same saved source and dependencies, writing only to a private audit directory. Keep the existing editor open. Honor explicit restrictions against separate compilation or replacement documents; ask only for the specific missing export/permission when required. Never silently install a compiler or upload personal data to an external conversion service.
+3. Establish that the PDF came from this compilation/export. Record the compile/export outcome, source identity, PDF absolute path and SHA-256 together in a new audit manifest. A filename, recent timestamp, old sibling `main.pdf`, or an unrelated PDF is insufficient evidence of correspondence. If that relationship cannot be established, mark freshness unverified and do not audit it as the latest edit.
+4. Run `check_pdf_text.py` on that PDF using the current expected fields and a new output filename. Inspect extracted reading order and field associations; render and inspect every page for wrapping, overlap, clipping, spacing, and three-item lists. Reassess required/preferred job evidence against the current posting without inventing a score. A helper exit 0 is only a text-check result, not the whole screen verdict.
+5. Fix supported defects within the existing three-repair limit. Each saved repair restarts verification on its new identity. Immediately before delivery, rehash the source/dependencies and PDF. If any changed during checking, invalidate the audit and verify the new saved version; do not attach the previous result to it. If ongoing changes prevent a stable audit within the repair limit, report that blocker.
+6. Save a current-version screen result linking source/PDF identities, extraction audit, visual findings, job-evidence status and readiness. Report PASS only when the latest version's required checks are complete and no material obstacle remains; REJECT for evidenced material obstacles; UNVERIFIED for missing evidence. State the exact failed/unavailable step and attempted fallback. Ask for an exported current PDF only after available permitted export/compile options have been attempted or ruled out. Never present an earlier PASS as current.
+
+The manifest and hashes establish which files were checked; they do not themselves prove that a PDF matches its source. The observed compile/export operation supplies that link. This is an agent workflow whenever the skill edits a resume, not a background watcher for edits made outside a running task.
+
+## Structured field assignment
+
+For every generated or revised PDF, also follow `structured-parser.md`. Verify actual jobs/projects and their associated fields against expectations, not merely the presence of words somewhere in the PDF. Include this result in the current-version manifest and invalidate it on edits. A text-helper pass cannot override a structured parser failure.
+
+After final content selection, complete the end-of-run repair loop in `structured-parser.md`; record its VERIFIED/PARTIAL/UNVERIFIED status separately from a simulated hiring verdict. Unresolved field assignment errors cannot be overridden by successful text extraction.
+
 ## 4. Report independently
 
 - **Parsing:** checked with no observed issues / issues found / unverified; name the file, extractor, visual check, and limitations.

@@ -1,20 +1,21 @@
 \documentclass[10pt,letterpaper]{article}
 \usepackage[margin=0.5in]{geometry}
 \usepackage[T1]{fontenc}
-% Enable Unicode text mapping and explicit interword spaces with pdfTeX.
+% Enable Unicode mapping; keep spaces in text runs for PDF.js parsers.
 \ifdefined\pdfgentounicode
   \input{glyphtounicode}
   \pdfgentounicode=1
 \fi
-\ifdefined\pdfinterwordspaceon\pdfinterwordspaceon\fi
-\renewcommand{\rmdefault}{ptm}
+
+\usepackage{lmodern}
 \usepackage[hidelinks]{hyperref}
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
 \setlength{\emergencystretch}{1em}
 \renewenvironment{itemize}{\begin{list}{\textbullet}{\setlength{\leftmargin}{1.1em}\setlength{\itemsep}{0.5pt}\setlength{\parsep}{0pt}\setlength{\topsep}{2pt}\setlength{\partopsep}{0pt}}}{\end{list}}
-\newcommand{\resumeSection}[1]{\par\vskip 7pt plus 1fill\noindent\textbf{\MakeUppercase{#1}}\par\nobreak\vspace{1pt}\hrule height 0.4pt\nobreak\vspace{3pt}}
+\newcommand{\resumeSection}[1]{\par\vskip 4pt plus 1fill\noindent\textbf{\MakeUppercase{#1}}\par\nobreak\vspace{1pt}\hrule height 0.4pt\nobreak\vspace{3pt}}
+\newcommand{\resumeEntryGap}{\par\vspace{6pt}}
 \newcommand{\resumeRow}[2]{\noindent #1\hfill #2\par}
 \newcommand{\resumeNeed}[1]{\textit{[ADD: #1]}}
 \begin{document}
@@ -28,14 +29,16 @@ email@example.com \enspace\textbullet\enspace Phone \enspace\textbullet\enspace 
 \vspace{4pt}
 
 % Replace all schematic content below with supported candidate facts.
+% Put \resumeEntryGap BETWEEN entries in the same section; not after its last entry.
+% Use employer first, then the actual role on its own row. Keep course codes in descriptions.
 \resumeSection{Education}
 \resumeRow{\textbf{University}}{City, State}
 \resumeRow{Degree and major}{Expected graduation}
 Minors or certificates, if supplied
 
-\resumeSection{Experience}
+\resumeSection{Work Experience}
 \resumeRow{\textbf{Organization}}{City, State}
-\resumeRow{\textit{Actual role title}}{Start -- End}
+\resumeRow{\textnormal{Actual role title}}{Start -- End}
 \begin{itemize}
 \item Source-supported action, scope, and outcome.
 \item A distinct source-supported responsibility or contribution.
@@ -50,19 +53,19 @@ Minors or certificates, if supplied
 \item A source-supported finding or a concise factual prompt.
 \end{itemize}
 
-\resumeSection{Leadership Experience and Activities}
+\resumeSection{Leadership}
 \resumeRow{\textbf{Organization}}{City, State}
-\resumeRow{\textit{Actual role title}}{Start -- End}
+\resumeRow{\textnormal{Actual role title}}{Start -- End}
 \begin{itemize}
 \item Source-supported collaboration and contribution.
 \item A distinct source-supported coordination responsibility.
 \item A source-supported outcome or a concise factual prompt.
 \end{itemize}
 
-\resumeSection{Technical Skills}
-\textbf{Category:} Source-supported skills
-
 \resumeSection{Honors}
 \resumeRow{\textbf{Award} \textbar{} Organization}{Date}
+\resumeSection{Skills}
+\textbf{Category:} Source-supported skills
+
 \par\egroup
 \end{document}

@@ -1,4 +1,4 @@
 interface:
   display_name: "Hiring Panel"
-  short_description: "Seven resume reviews and a tailored LaTeX rewrite"
-  default_prompt: "Use $hiring-panel to review my resume against this job posting and create an improved LaTeX resume matching my reference layout."
+  short_description: "Iterative resume reviews and a tailored LaTeX rewrite"
+  default_prompt: "Use $hiring-panel to iteratively improve my resume against this job posting, check ATS readability, and build a LaTeX resume matching my reference layout."

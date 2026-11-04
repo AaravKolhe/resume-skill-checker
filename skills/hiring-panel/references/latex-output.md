@@ -4,11 +4,13 @@ Use `assets/resume-template.tex` as a portable, self-contained starting point. I
 
 ## Visual target
 
-- US Letter, one column, approximately 0.5-inch margins, 10-11 pt Times-style serif text.
-- Balance the visible top and bottom borders using the template's full-height content box. Use uniform 0.5 pt item gaps and 2 pt list gaps; distribute leftover page height evenly across the section gaps, each with a 7 pt minimum. Keep the same spacing definitions across entries rather than adding isolated blank lines or negative spacing fixes.
+- US Letter, one column, approximately 0.5-inch margins, 10-11 pt Latin Modern Roman serif text (`lmodern`), whose bold font names are recognized by the tested parser.
+- Balance the visible top and bottom borders using the template's full-height content box. Use uniform 0.5 pt item gaps and 2 pt list gaps; distribute leftover page height evenly across the section gaps, each with a 4 pt minimum. Keep the same spacing definitions across entries rather than adding isolated blank lines or negative spacing fixes.
 - Centered bold name around 18 pt with one compact contact line.
 - Uppercase bold section headings above thin horizontal rules.
-- Bold employer/project names; italic roles or descriptors; right-aligned locations and dates.
+- Bold employer/project names; employer/location first, then the actual role in normal text with dates. Use a uniform 6 pt gap between entries in the same section; do not add that gap after the last entry.
+- Use standard headings: Education, Work Experience, Projects, Leadership, Honors, Skills. Put Skills last so unrecognized later sections cannot be absorbed into it.
+- Keep course codes and technical descriptors outside the job-title field without losing them from the resume. Preserve actual titles. Prefer plain textual metric names such as R-squared over superscript math.
 - Tight, readable bullet lists with no icons, photo, sidebar, colors, or page numbers.
 - Exactly three items per bullet list, with each item occupying one rendered line. This applies to every list, not to sections such as Education or Skills that use plain rows.
 - Every generated or revised text entry must fit on one rendered line. A single line in the `.tex` source does not prove that it fits in the PDF.
@@ -33,7 +35,7 @@ Use `\resumeRow{left}{right}` for short aligned rows; keep both fields short eno
 
 ## Verification
 
-Follow `ats-checks.md` for final-PDF extraction and job-evidence checks. Retain the template's pdfTeX Unicode mapping and interword-space settings; these improve text extraction but do not guarantee ATS compatibility. Verify actual output even when these settings are enabled. Contact details belong in the document body, and all essential information must remain extractable as text.
+Follow `ats-checks.md`, including its latest-edit verification procedure, after every saved resume revision. Obtain and check a PDF of that exact saved source; a preview-only compile must trigger discovery of permitted export or local compilation options before declaring verification unavailable. Preserve an existing editor and honor explicit restrictions on separate compilation. Retain Unicode mapping. Do not enable `pdfinterwordspaceon` by default: the tested OpenResume/PDF.js pipeline removes separate whitespace items and can concatenate words. Use the tested Latin Modern font and verify actual word spacing and bold detection after any font change. Follow `structured-parser.md` for field-assignment checks. Verify actual output even when these settings are enabled. Contact details belong in the document body, and all essential information must remain extractable as text.
 
 Fix compiler errors and material overfull-box warnings, up to three repair attempts. Count exactly three `\item` entries in each bullet list. Render every resulting PDF page and inspect margins, wrapping, date alignment, section rules, and bullets; confirm each bullet and text entry occupies one visual line. A compiler can succeed while text wraps, so compilation alone does not verify this constraint. Extract its text to verify reading order, contacts, dates, symbols, metrics, and visibility of all unresolved prompts; compare it with the intended content. Do not assume successful compilation guarantees a readable or ATS-compatible PDF.
 
